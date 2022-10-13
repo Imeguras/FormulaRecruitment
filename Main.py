@@ -15,6 +15,7 @@ def main():
     t1 = threading.Thread(target=drawFrame, args=(cap, q), daemon=True)
     #t2 = threading.Thread(target=drawPoints, args=(q,))
     t1.start()
+
     drawPoints(q)
 
     cap.release()
@@ -25,10 +26,13 @@ def drawPoints(q):
     while True:
         #await q.get()
         frame = q.get()
-        
+
+        if(not q.empty()):
+            break; 
+            
         # get the points of image where the color is white
         points = np.argwhere(frame == [255, 255, 255])
-          # draw a circle in said location
+        # draw a circle in said location
         
         cv2.circle(frame, (points[0][1], points[0][0]), 10, (0, 0, 255), -1)
         #release the frame
@@ -45,8 +49,11 @@ def drawFrame(cap, q):
         q.put(frame)
         # press q to exit
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            #send event to kill all threads
+            q.put(0xFF)
             break
 
+        
         frame=q.get()
         # call drwaPoints as a thread
         cv2.imshow("frame", frame)
