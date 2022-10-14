@@ -16,8 +16,18 @@ Then you are supposed to click in the center, the algorithm will then fetch the 
 
 ## No "manual mode"? 
 
-i intended to so... but the code is very spaggeti, if needed i will promply rewrite everything from scratch and start building everything in paper
+i intended to so... but the code is very spaggeti, if needed i will promply rewrite everything from scratch and start building everything in paper first this was kinda rushed as i wanted to finish it in two days(i failed to do so)
+
+## the pop up doesnt even pop!
+
+do alt tab? on my env its a problem that is solved by chaging to the new window(i think it also naturally does that by itself but takes longer for some reason)
 
 ## how do i... EXIT!?
 
-press q... or esc... it depends
+press q or esc, it depends
+
+## WHERES THE VIDEO!?!
+
+![its here](example.mov "example.mov")
+
+(if it failed go to the example.mov thingie)
