@@ -22,12 +22,12 @@ Also as addendum i will be using latex like formatting for math so that accordin
 First assuming that the car is being drived by a person with the ability to react instantly, we can say that the wheel that controls the car is able to spin 90º each way(which now that i remember i think thats precisely how much the prototype car wheelhandle spins).
 
 The steering ratio is calculated as such(according to [wikipedia](https://en.wikipedia.org/wiki/Steering_ratio) the free encyclopedia):
-	$$ sr = { \pm tal \over \pm sal } $$
+	$( sr = { \pm tal \over \pm sal } )$
 
 Where $sr$ represents the steering ratio, $tal$ represents the positive and negative maximum turn angles of the steering wheel and $sal$ represents the maximum and minimum angle that the actual front wheels can turn.  
 
 As said previously we can just: 
-	$$ \pm tal = { sr * \pm sal } $$
+	$( \pm tal = { sr * \pm sal } )$
 Arriving at the aforementioned $( \pm 90º )$.
 
 ## Yaw, Torque and Avoiding under-steering and over-steering
@@ -39,32 +39,32 @@ We start by simplifying the scenario and saying that the car somehow is in a sta
 (_off note, anotação matemática com isto e bue fácil e percetível devia ter pesquisado isto mais cedo_)
 
 As also said in the paper we can arrive at the torque equation like so:
-$$F_{Lf}l=ma_yl_r$$
+$$(F_{Lf}l=ma_yl_r)$$
 
 Basically $F_{Lf}$ represents the lateral direction force on the front of the car
 , $l$ represents represents the distance in meters from the center of the back tire to the respective center of the front tire in the same side, then $ma_y$ represents the centrifugal force that is exerted on the center of the car lastly we have $l_r$ which represents the length from the center of the rear tires to the center of mass
 
 We can first yeet the $l$ to the other side like so:
-$$F_{Lf}=ma_y{l_r\over l}$$
+$$(F_{Lf}=ma_y{l_r\over l})$$
 If i havent made it obvious im gonna try to get rid of the l's im guessing that this line:
 ```
 Weight distributions front/back: ~50/50
 ```
 is telling us that the center of mass is well centered that is lr= lf, if $lr+lf=l$ then we get
-$$F_{Lf}={ma_y\over 2}$$
+$$(F_{Lf}={ma_y\over 2})$$
 
 Now we can just 
 $$ c_{\alpha f}*\alpha_f={ma_y\over 2}$$
 
 Where the alfa thingie represents the angle that the front wheel makes in relation to its respective back wheel. Now we just fetch some details from the paper and get to:
 
-$$ c_{\alpha f}*({\delta +\beta -{l_f*\psi \over v}})={ma_y\over 2}$$
+$$( c_{\alpha f}*({\delta +\beta -{l_f*\psi \over v}})={ma_y\over 2} )$$
 
 We want the $\delta$ or the steering angle so im just gonna skip a few steps because this notation is takes time. Im also gonna plug $v=$, which describes the velocity related to the radius and velocity of yaw
 
-$$ {\delta}={ma_y\over 2*c_{\alpha f}}-\beta+ -{l_f*\bcancel{\dot\psi} \over \bcancel{\dot\psi}*r}$$
+$$( {\delta}={ma_y\over 2*c_{\alpha f}}-\beta+ -{l_f*\bcancel{\dot\psi} \over \bcancel{\dot\psi}*r} )$$
 
-This gives is a very rough model i would use to check what angle should the wheels be in when turning. to make shure we dont overturn $\Delta\alpha$ must be equal to 0 we can add $$\Delta\alpha= \delta-{l \over r}$$
+This gives is a very rough model i would use to check what angle should the wheels be in when turning. to make shure we dont overturn $\Delta\alpha$ must be equal to 0 we can add $$(\Delta\alpha= \delta-{l \over r})$$
 
 (also dont forget that the steering wheel turn $\neq$ the actual degree of the wheel so supposing that the car is always uniquely controlled by the steering wheel we would have to multiply by the steering ratio as previously mentioned)
 
